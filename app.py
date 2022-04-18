@@ -1,11 +1,12 @@
 from flask import Flask
+from config import Config
+
 
 app = Flask(__name__)
+app.config.from_object(Config)    # подключение настроек сайта
 
 
-@app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
+from routes import *
 
 
 if __name__ == '__main__':
